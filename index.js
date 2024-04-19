@@ -34,17 +34,27 @@ let  username = "me" ;
 app.get("/toggle/:name",(req, res) => {
     username = req.params.name;
     toggle = !toggle;
+    res.send("");
 })
+
+app.get("/employee",(req, res) => {
+    console.log(Employees)
+    Employee.find()
+    .then(result => {
+    res.render("employee",{Employees:result})
+    })
+})
+
 
 app.post("/newid/:user", (req, res) => {
 
-    Employee.find()
-        .then((result) => {
-            Employees = result;
-        })
-        .catch((err) => console.log(err));
 
     if (toggle == true) {
+        
+    Employee.find()
+    .then((result) => {
+        Employees = result;
+    
         Object.keys(Employees).forEach(element => {
             if (Employees[element].card == req.params.user) res.send("Already there")
         });
@@ -52,6 +62,8 @@ app.post("/newid/:user", (req, res) => {
         employee.save()
             .then(() => res.send("Employee saved"))
             .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
     } else {
         Employee.findOne({ card: req.params.user })
             .then(result => {
