@@ -38,7 +38,10 @@ while True:
     if len(bboxs) != people:
         people = len(bboxs)
         print(people)
-        Speaker = gTTS(NumberToName(people) + " people here", lang="en")
+        s = "people"
+        if people == 1:
+            s = "person"
+        Speaker = gTTS(NumberToName(people) + " " + s + " here", lang="en")
         Speaker.save("PeopleHere.mp3")
         os.system("start PeopleHere.mp3")
         try:
