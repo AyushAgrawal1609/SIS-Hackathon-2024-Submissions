@@ -6,7 +6,7 @@ const EmployeeSchema = new Schema({
         type: String,
         required: true
     },
-    card: {type:Number},
+    card: {type:Number,unique: true},
     present: {
         type:Boolean,
         default: false
