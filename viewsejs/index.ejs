@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I AM BLIND</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        body{
-            background-color: #204040;
-            padding: 1rem;
-        }
-        .circular{
-            display: inline;
-            padding: 2rem;
-            background-color: black;
-            color: aliceblue;
-            border-radius: 2rem;
-            margin: 0.1rem;
-            margin-top: 2rem;
-        }
-        .container{
-            margin-top: 2rem;
-        }
+      body {
+        background-color: #204040;
+        padding: 1rem;
+      }
+      *{
+        box-sizing: border-box;
+      }
+      .circular {
+        display: inline;
+        padding: 2rem;
+
+        background-color: black;
+        color: aliceblue;
+        border-radius: 2rem;
+        margin: 0.1rem;
+        margin-top: 2rem;
+      }
+      .container {
+        margin-top: 2rem;
+      }
     </style>
-</head>
-<body>
-    <div class="container"><div class="circular"><%=dataset.sensor.distance%> </div><div class="circular"><%=dataset.sensor.distance%> </div></div>
-</body>
+    <script></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circular">
+        <%=dataset.sensor.distance%>
+      </div>
+      <div class="circular"><%=dataset.face.people%></div>
+    </div>
+  </body>
 </html>
