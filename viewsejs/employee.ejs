@@ -11,21 +11,30 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/782400ee63.js"
+      crossorigin="anonymous"
+    ></script>
     <script>
-        let name = "a";
-        console.log("hello")
-        function change(e){
-            console.log(e)
-           name = e;
-        }
-        function submit(){
-            console.log(name);
-            console.log("hello");
-           fetch("/toggle/"+name, {
-            method: "GET"
-            }).then(()=>{console.log("hello2");document.getElementById("button").innerHTML = (document.getElementById("button").innerHTML == "Submit" ? "Stop toggling" : "Submit")})
-        }
-
+      let name = "a";
+      console.log("hello");
+      function change(e) {
+        console.log(e);
+        name = e;
+      }
+      function submit() {
+        console.log(name);
+        console.log("hello");
+        fetch("/toggle/" + name, {
+          method: "GET",
+        }).then(() => {
+          console.log("hello2");
+          document.getElementById("button").innerHTML =
+            document.getElementById("button").innerHTML == "Submit"
+              ? "Stop toggling"
+              : "Submit";
+        });
+      }
     </script>
 
     <link
@@ -46,7 +55,10 @@
       style="background-color: blueviolet"
     >
       <div class="navbar-header">
-        <a class="navbar-brand ms-2" href="/">SecuritySphere</a>
+        <a class="navbar-brand ms-4" style="font-family: lora" href="/"
+          ><i class="fa-solid fa-globe" style="font-size: 1.75rem"> </i>
+          SecureSphere</a
+        >
       </div>
       <ul class="nav navbar-nav navbar-right nav-underline">
         <li class="nav-item m-1">
@@ -55,35 +67,64 @@
           >
         </li>
         <li class="nav-item m-1 me-3">
-          <a class="nav-link active text-dark " href="#">Employees</a>
+          <a class="nav-link active text-dark" href="#">Employees</a>
         </li>
       </ul>
     </nav>
-    <div class="container mt-4" style="display: flex;flex-direction: row;align-content: center;">
-      <ul class="list-group" style="width:40rem;">
+    <div
+      class="container mt-4"
+      style="display: flex; flex-direction: row; align-content: center"
+    >
+      <ul class="list-group container mb-4">
         <% Object.values(Employees).forEach(Employee => { %>
-            <li class="list-group-item d-flex justify-content-between align-items-start"><%= Employee.username %><% if (Employee.present) { %>
-                <span class="badge text-bg-primary rounded-pill">Active</span>
-            <% } else { %>
-                <span class="badge text-bg-danger rounded-pill">Inactive</span>
-                <% } %>
-             </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <%= Employee.username %><% if (Employee.present) { %>
+          <span class="badge text-bg-primary rounded-pill">Active</span>
+          <% } else { %>
+          <span class="badge text-bg-danger rounded-pill">Inactive</span>
+          <% } %>
+        </li>
         <% }) %>
-    </ul>
+      </ul>
     </div>
     <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Add Employee
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <input type="text" onchange="change(this.value)" class="form-control" value="a" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"><button id="button" onclick="submit()" class="btn btn-primary" >Submit</button>
-            </div>
+      <div class="accordion-item mx-3">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            Add Employee
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <input
+              type="text"
+              onchange="change(this.value)"
+              class="form-control"
+              value="Employee Name"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            /><button
+              id="button"
+              onclick="submit()"
+              class="btn btn-primary my-3"
+            >Submit</button>
           </div>
         </div>
+      </div>
     </div>
   </body>
 </html>

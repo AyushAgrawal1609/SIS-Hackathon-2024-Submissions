@@ -30,7 +30,7 @@
       style="background-color: blueviolet"
     >
       <div class="navbar-header">
-        <a class="navbar-brand ms-2" style="font-family: lora;" href="#">SecuritySphere</a>
+        <a class="navbar-brand ms-2" style="font-family: lora;" href="#"><i class="fa-solid fa-globe" style="font-size: 1.75rem;">    </i>   SecureSphere</a>
       </div>
       <ul class="nav navbar-nav navbar-right nav-underline">
         <li class="nav-item m-1">
@@ -44,17 +44,17 @@
       </ul>
     </nav>
     <div class="container mt-4" style="display: flex;flex-direction: row;align-content: center;">
-        <div class="card justify-content-center me-3" style="width: 15rem;">
-          <i class="fa-solid fa-ruler" class="card-img-top mx-5 my-3" style="text-align: center; font-size:  10rem;"></i>
-          <div class="card-body justify-content-end" style="margin-top: 1.3rem;">
-            <h5 class="card-title justify-content-end">Distance</h5>
+        <div class="card me-3" style="width: 15rem;">
+          <i class="fa-solid fa-ruler mt-2" class="card-img-top mx-5 my-3" style="text-align: center; font-size:  10rem;"></i>
+          <div class="card-body" style="margin-top: 1.3rem;">
+            <h5 class="card-title">Distance</h5>
             <p class="card-text" style="font-family: lora;font-size: 48px;">
               <%=dataset.sensor.distance%></p>
           </div>
         </div>
         <div class="card me-3" style="width: 15rem">
-          <i class="fa-solid fa-user" class="card-img-top mx-5 my-3" style="text-align: center; font-size:  10rem;"></i>
-          <div class="card-body">
+          <i class="fa-solid fa-user mt-2" class="card-img-top mx-5 my-3" style="text-align: center; font-size:  10rem;"></i>
+          <div class="card-body"  style="margin-top: 1.3rem;">
             <h5 class="card-title ">People Nearby</h5>
             <p class="card-text" style="font-family: lora;font-size: 48px;"><%=dataset.face.people%></p>
           </div>
